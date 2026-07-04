@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="min-h-screen bg-slate-50 px-4 md:px-8 py-12 flex items-center justify-center">
+    <div class="max-w-2xl w-full bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-xs">
+        
+        <div class="w-12 h-12 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center text-xl mx-auto mb-4">
+            🤝
+        </div>
+        
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+            Terms & <span class="text-orange-500">Conditions</span>
+        </h1>
+        
+        <div class="text-slate-600 space-y-4 text-base leading-relaxed">
+            <p class="font-semibold text-slate-800">Using DevHub comes down to two simple rules:</p>
+            
+            <ul class="text-left max-w-md mx-auto space-y-3 list-none">
+                <li class="flex items-start gap-2">
+                    <span class="text-orange-500">🚀</span> 
+                    <span><strong>Be Original:</strong> Share your own knowledge. Do not copy-paste articles or steal work from other developers.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-orange-500">🛡️</span> 
+                    <span><strong>No Spamming:</strong> Posting malicious code scripts, virus links, or spam content will result in an immediate account ban.</span>
+                </li>
+            </ul>
+            
+            <p class="pt-4 text-sm text-slate-400">
+                That is all! Enjoy reading, happy coding, and start sharing your stories with the community.
+            </p>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

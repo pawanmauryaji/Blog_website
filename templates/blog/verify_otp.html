@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="min-h-[80vh] bg-slate-50 flex items-center justify-center px-4 py-12">
+    <div class="max-w-md w-full bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+        
+      
+        <div class="mx-auto w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center text-2xl mb-5 font-bold">
+            🛡️
+        </div>
+
+    
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+                Security <span class="text-orange-500">Verification</span>
+            </h1>
+            <p class="text-sm text-slate-500 mt-2">
+                We have sent a 6-digit secure authentication code to your email address.
+            </p>
+        </div>
+
+       
+        <form action="/auth/verify-otp" method="POST" class="space-y-6">
+            
+            <input type="hidden" name="email" id="email_input" value="{{ email }}">
+
+           
+            <div>
+                <label for="otp" class="block text-sm font-bold text-slate-800 mb-2 text-center">
+                    Enter 6-Digit OTP
+                </label>
+                <input 
+                    type="text" 
+                    id="otp" 
+                    name="otp" 
+                    required 
+                    maxlength="6"
+                    pattern="[0-9]{6}"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    class="w-full text-center px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white text-2xl font-bold tracking-widest text-slate-900 transition-all placeholder:text-slate-300 placeholder:tracking-normal placeholder:text-sm placeholder:font-normal" 
+                    placeholder="• • • • • •"
+                >
+            </div>
+
+            
+            <button 
+                type="submit" 
+                class="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl shadow-md shadow-orange-500/10 transition-colors text-sm cursor-pointer font-bold tracking-wide"
+            >
+                Verify & Continue
+            </button>
+        </form>
+
+        
+     <div class="text-center text-sm text-slate-400 mt-6">
+    <p>Didn't receive the code? Check your spam folder or</p>
+    
+    
+    <form action="/auth/resend-otp" method="POST" class="inline-block">
+        <button type="submit" id="resendBtn" class="text-orange-500 font-semibold hover:underline inline-block mt-1 focus:outline-none bg-transparent border-0 p-0 cursor-pointer disabled:text-slate-500 disabled:no-underline">
+            Request a new one
+        </button>
+    </form>
+
+    <span id="timerText" class="text-slate-500 font-medium block mt-1 hidden">
+        Resend available in <span id="countdown" class="text-orange-500 font-bold">30</span>s
+    </span>
+</div>
+
+    </div>
+</main>
+
+
+<script>
+    const resendBtn = document.getElementById('resendBtn');
+    const timerText = document.getElementById('timerText');
+    const countdownSpan = document.getElementById('countdown');
+
+    let timeLeft = localStorage.getItem('otpTimer') ? parseInt(localStorage.getItem('otpTimer')) : 0;
+
+    function startTimer() {
+        if (timeLeft <= 0) return;
+
+        resendBtn.classList.add('hidden'); 
+        timerText.classList.remove('hidden'); 
+        resendBtn.disabled = true;
+
+        const interval = setInterval(() => {
+            timeLeft--;
+            countdownSpan.innerText = timeLeft;
+            localStorage.setItem('otpTimer', timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                resendBtn.classList.remove('hidden');
+                timerText.classList.add('hidden'); 
+                resendBtn.disabled = false;
+                localStorage.removeItem('otpTimer');
+            }
+        }, 1000);
+    }
+
+    
+    resendBtn.closest('form').addEventListener('submit', () => {
+        timeLeft = 30;
+        localStorage.setItem('otpTimer', timeLeft);
+    });
+
+   
+    if (timeLeft > 0) {
+        startTimer();
+    }
+</script>
+
+
+{% endblock %}
