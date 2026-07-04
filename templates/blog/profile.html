@@ -1,23 +1,20 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block content %}
 <main class="min-h-[80vh] bg-slate-50 flex items-center justify-center px-4 py-12">
     
-<<<<<<< HEAD
   
     <div class="w-full max-w-md bg-white border border-slate-200 p-8 rounded-2xl shadow-xs">
         
     
         <div class="flex flex-col items-center text-center mb-8 pb-6 border-b border-slate-100">
            
-=======
-    <!-- Minimalist Profile Card Container -->
+    
     <div class="w-full max-w-md bg-white border border-slate-200 p-8 rounded-2xl shadow-xs">
         
-        <!-- Profile Header with Avatar -->
+        
         <div class="flex flex-col items-center text-center mb-8 pb-6 border-b border-slate-100">
-            <!-- User Initials Avatar Circle (नाम का पहला अक्षर उठाएगा) -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-sm mb-4 select-none">
                 {{ user.name[0] | upper }}
             </div>
@@ -25,17 +22,14 @@
             <p class="text-sm text-slate-400 mt-0.5">@{{ user.username }}</p>
         </div>
 
-<<<<<<< HEAD
      
         <div class="space-y-5">
             
           
-=======
-        <!-- User Information Details -->
+        
         <div class="space-y-5">
             
-            <!-- Email Info Field -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <div>
                 <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Email Address</span>
                 <p class="text-base font-medium text-slate-900 bg-slate-50 border border-slate-100 rounded-lg px-3 py-2.5">
@@ -43,11 +37,8 @@
                 </p>
             </div>
 
-<<<<<<< HEAD
            
-=======
-            <!-- Bio Field -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <div>
                 <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Bio</span>
                 <p class="text-sm text-slate-700 bg-slate-50 border border-slate-100 rounded-lg px-3 py-2.5 min-h-[45px]">
@@ -59,11 +50,8 @@
                 </p>
             </div>
 
-<<<<<<< HEAD
             
-=======
-            <!-- Account Status Field -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <div>
                 <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Account Status</span>
                 <div class="flex items-center gap-2 mt-1.5 px-1">
@@ -74,21 +62,15 @@
 
         </div>
 
-<<<<<<< HEAD
    
-=======
-        <!-- Action Buttons (Logout & Create) -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+        
         <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
             <a href="/blog/create" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-center font-medium text-sm py-2.5 rounded-lg transition-colors cursor-pointer shadow-xs">
                 Write New Blog
             </a>
             
-<<<<<<< HEAD
       
-=======
-            <!-- लॉगआउट बटन -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <a href="/auth/logout" class="flex-1 bg-white hover:bg-slate-50 text-slate-700 text-center font-medium text-sm py-2.5 rounded-lg border border-slate-200 transition-colors cursor-pointer">
                 Sign Out
             </a>
@@ -97,3 +79,4 @@
     </div>
 </main>
 {% endblock %}
+

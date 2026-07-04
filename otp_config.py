@@ -69,23 +69,23 @@ def send_otp_email(background_tasks: BackgroundTasks, username: str, email: str,
     <body style="background-color: #0b0f19; margin: 0; padding: 40px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-font-smoothing: antialiased;">
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 550px; background-color: #111827; border: 1px solid #1f2937; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);">
             
-            <!-- Branding Header Row -->
+            
             <tr>
                 <td style="padding: 32px 40px 10px 40px; text-align: left;">
                     <div style="font-size: 22px; font-weight: 800; color: #f97316; letter-spacing: -0.5px;">
-                        DevHub <span style="color: #ffffff; font-weight: 400; font-size: 14px;">// AUTHENTICATION</span>
+                        DevHub <span style="color: #ffffff; font-weight: 400; font-size: 14px;">AUTHENTICATION</span>
                     </div>
                 </td>
             </tr>
             
-            <!-- Structural Divider -->
+            
             <tr>
                 <td style="padding: 0 40px;">
                     <hr style="border: 0; border-top: 1px solid #1f2937; margin: 20px 0;">
                 </td>
             </tr>
             
-            <!-- Core Content Communication -->
+            
             <tr>
                 <td style="padding: 10px 40px 20px 40px;">
                     <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; margin: 0 0 16px 0; tracking-content: -0.5px;">Security Verification</h1>
@@ -98,7 +98,7 @@ def send_otp_email(background_tasks: BackgroundTasks, username: str, email: str,
                 </td>
             </tr>
             
-            <!-- Central Premium Dark Code Grid Container -->
+            
             <tr>
                 <td style="padding: 10px 40px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #030712; border: 1px solid #374151; border-radius: 12px; text-align: center;">
@@ -113,7 +113,7 @@ def send_otp_email(background_tasks: BackgroundTasks, username: str, email: str,
                 </td>
             </tr>
             
-            <!-- Clean Red Warning Text Area -->
+            
             <tr>
                 <td style="padding: 20px 40px 30px 40px; text-align: center;">
                     <p style="color: #ef4444; font-size: 14px; font-weight: 600; margin: 0; line-height: 20px;">
@@ -122,7 +122,7 @@ def send_otp_email(background_tasks: BackgroundTasks, username: str, email: str,
                 </td>
             </tr>
             
-            <!-- Legal Anti-Spam Footer Compliant Block Matrix -->
+            
             <tr>
                 <td style="padding: 30px 40px; background-color: #0f172a; border-top: 1px solid #1f2937; text-align: center;">
                     <p style="color: #6b7280; font-size: 12px; line-height: 18px; margin: 0;">

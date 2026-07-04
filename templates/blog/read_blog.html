@@ -1,9 +1,8 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block content %}
 <main class="min-h-[85vh] bg-slate-50 px-4 md:px-8 py-12 flex justify-center">
     
-<<<<<<< HEAD
    
     <article class="w-full max-w-3xl bg-white border border-slate-200 p-6 md:p-12 rounded-2xl shadow-xs">
         
@@ -14,58 +13,47 @@
                 {{ blog.tag }}
             </span>
            
-=======
-    <!-- Premium Article Container Div -->
+    
     <article class="w-full max-w-3xl bg-white border border-slate-200 p-6 md:p-12 rounded-2xl shadow-xs">
         
-        <!-- Meta Info Row Div (Tag & Date) -->
+        
         <div class="flex items-center gap-4 mb-6">
-            <!-- Category Tag -->
+            
             <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-orange-100 uppercase tracking-wider">
                 {{ blog.tag }}
             </span>
-            <!-- Date Published -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <span class="text-xs text-slate-400 font-medium">
                 Published on {{ blog.created_at.strftime('%B %d, %Y') if blog.created_at else 'Recent' }}
             </span>
         </div>
 
-<<<<<<< HEAD
        
-=======
-        <!-- Full Blog Title Div -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+        
         <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8">
             {{ blog.title }}
         </h1>
 
-<<<<<<< HEAD
   
         <div class="flex items-center gap-3 pb-8 border-b border-slate-100 mb-8">
         
-=======
-        <!-- Author Profile Row Div -->
+        
         <div class="flex items-center gap-3 pb-8 border-b border-slate-100 mb-8">
-            <!-- Initials Avatar Circle Div -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+            
             <div class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white text-sm font-bold uppercase select-none shrink-0">
                 {{ blog.author.name[0] if blog.author and blog.author.name else 'D' }}
             </div>
             <div>
-<<<<<<< HEAD
              
                 <p class="text-sm font-bold text-slate-800 leading-tight">
                     {{ blog.author.name if blog.author else 'Anonymous Developer' }}
                 </p>
                
-=======
-                <!-- Author Name -->
+                
                 <p class="text-sm font-bold text-slate-800 leading-tight">
                     {{ blog.author.name if blog.author else 'Anonymous Developer' }}
                 </p>
-                <!-- Author Bio -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+                
                 <p class="text-xs text-slate-400 mt-1 italic">
                     {% if blog.author and blog.author.bio %}
                         {{ blog.author.bio }}
@@ -76,27 +64,22 @@
             </div>
         </div>
 
-<<<<<<< HEAD
     
-=======
-        <!-- Full Blog Content Div (Clean Typography) -->
-        <!-- 💡 whitespace-pre-line is added so paragraphs and enters remain intact -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+        
+        
         <div class="text-base md:text-lg text-slate-700 leading-relaxed space-y-6 font-sans whitespace-pre-line break-words">
             {{ blog.content }}
         </div>
 
-<<<<<<< HEAD
         
-=======
-        <!-- Back to Home Action Div -->
->>>>>>> 611e85944e9256841998dcb1aa1f6ac0f9d15729
+        
         <div class="mt-12 pt-6 border-t border-slate-100">
             <a href="/" class="inline-flex items-center gap-2 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors">
-                ← Back to DevHub Stories
+                â† Back to DevHub Stories
             </a>
         </div>
 
     </article>
 </main>
 {% endblock %}
+
