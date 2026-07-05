@@ -1,14 +1,10 @@
-﻿{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-
+<!-- Main Background Wrapper -->
 <main class="min-h-[85vh] bg-slate-50 px-4 md:px-8 py-12">
     
-   
-
-<main class="min-h-[85vh] bg-slate-50 px-4 md:px-8 py-12">
-    
-    
+    <!-- Hero Header Div -->
     <div class="max-w-7xl mx-auto mb-16 text-center md:text-left border-b border-slate-200 pb-10">
         <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl">
             Explore <span class="text-orange-500">DevHub</span> Stories
@@ -18,78 +14,50 @@
         </p>
     </div>
 
-    
+    <!-- Container Div for Blogs -->
     <div class="max-w-7xl mx-auto">
-    
+        
+        <!-- 🎯 अगर डेटाबेस में ब्लॉग्स मौजूद हैं -->
         {% if blogs %}
-       
+        <!-- Responsive Grid Div -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {% for blog in blogs %}
-           
+            <!-- 🎯 पूरा का पूरा div कार्ड अब एक anchor link है (100% Clickable) -->
             <a href="/blog/{{ blog.id }}" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-orange-500/40 hover:shadow-lg transition-all duration-300 focus:outline-none">
                 
-           
+                <!-- Top Section Wrapper Div -->
                 <div>
-                   
+                    <!-- Meta Info Div (Tag & Date) -->
                     <div class="flex items-center justify-between mb-5">
-                      
+                        <!-- Category Tag Div -->
                         <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-orange-100 uppercase tracking-wider group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                             {{ blog.tag }}
                         </span>
-                        
-    
-    <div class="max-w-7xl mx-auto">
-        
-        
-        {% if blogs %}
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {% for blog in blogs %}
-            
-            <a href="/blog/{{ blog.id }}" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-orange-500/40 hover:shadow-lg transition-all duration-300 focus:outline-none">
-                
-                
-                <div>
-                    
-                    <div class="flex items-center justify-between mb-5">
-                        
-                        <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-orange-100 uppercase tracking-wider group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
-                            {{ blog.tag }}
-                        </span>
-                        
+                        <!-- Date Div -->
                         <span class="text-xs text-slate-400 font-medium">
                             {{ blog.created_at.strftime('%b %d, %Y') if blog.created_at else 'Recent' }}
                         </span>
                     </div>
 
-                  
-                    
+                    <!-- Blog Title Div (group-hover से माउस ले जाते ही टेक्स्ट ऑरेंज हो जाएगा) -->
                     <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-3 line-clamp-2 group-hover:text-orange-500 transition-colors duration-300">
                         {{ blog.title }}
                     </h3>
 
-                  
-                    
+                    <!-- Content Snippet Div -->
                     <p class="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
                         {{ blog.content }}
                     </p>
                 </div>
 
+                <!-- Bottom Section Div: Author Profile Row -->
                 <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
-                  
+                    <!-- Initials Avatar Circle Div -->
                     <div class="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center text-white text-xs font-bold uppercase select-none shrink-0 group-hover:bg-orange-500 transition-colors duration-300">
                         {{ blog.author.name[0] if blog.author and blog.author.name else 'D' }}
                     </div>
-               
-                
-                <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
-                    
-                    <div class="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center text-white text-xs font-bold uppercase select-none shrink-0 group-hover:bg-orange-500 transition-colors duration-300">
-                        {{ blog.author.name[0] if blog.author and blog.author.name else 'D' }}
-                    </div>
-                    
+                    <!-- Author Text Details Div -->
                     <div>
                         <p class="text-sm font-bold text-slate-800 leading-none">
                             {{ blog.author.name if blog.author else 'Anonymous Developer' }}
@@ -103,12 +71,11 @@
 
         </div>
         
-      
-        
+        <!-- 🎯 अगर डेटाबेस पूरी तरह खाली है (No Blogs State) -->
         {% else %}
         <div class="text-center py-20 bg-white border border-slate-200 rounded-2xl p-8 max-w-xl mx-auto shadow-xs">
             <div class="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-5 font-bold">
-                âœï¸
+                ✍️
             </div>
             <h3 class="text-xl font-bold text-slate-900">No stories published yet</h3>
             <p class="text-sm text-slate-500 mt-2 max-w-sm mx-auto">
@@ -125,4 +92,3 @@
     </div>
 </main>
 {% endblock %}
-
