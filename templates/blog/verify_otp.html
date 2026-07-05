@@ -79,14 +79,14 @@
     const timerText = document.getElementById('timerText');
     const countdownSpan = document.getElementById('countdown');
 
-    Check agar pehle se koi timer chal raha tha (Page reload hone par bhi kaam karega)
+    
     let timeLeft = localStorage.getItem('otpTimer') ? parseInt(localStorage.getItem('otpTimer')) : 0;
 
     function startTimer() {
         if (timeLeft <= 0) return;
 
-        resendBtn.classList.add('hidden'); Button chhupao
-        timerText.classList.remove('hidden'); Timer dikhao
+        resendBtn.classList.add('hidden'); 
+        timerText.classList.remove('hidden'); 
         resendBtn.disabled = true;
 
         const interval = setInterval(() => {
@@ -96,8 +96,8 @@
 
             if (timeLeft <= 0) {
                 clearInterval(interval);
-                resendBtn.classList.remove('hidden'); Button wapas dikhao
-                timerText.classList.add('hidden'); Timer chhupao
+                resendBtn.classList.remove('hidden'); 
+                timerText.classList.add('hidden'); 
                 resendBtn.disabled = false;
                 localStorage.removeItem('otpTimer');
             }

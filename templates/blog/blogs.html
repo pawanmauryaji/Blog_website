@@ -151,10 +151,9 @@
         const modal = document.getElementById('deleteModal');
         const form = document.getElementById('deleteForm');
         
-        Form ka backend route action dynamically link karein
+       
         form.action = `/blog/delete/${blogId}`;
-        
-        Modal visual visibility state handle karein
+   
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; 
     }

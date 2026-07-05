@@ -86,21 +86,21 @@
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
-        open menu function
+      
         function openMenu() {
             sidebar.classList.remove('-translate-x-full'); 
             overlay.classList.remove('opacity-0', 'pointer-events-none'); 
             overlay.classList.add('opacity-100');
         }
 
-        Close Menu function
+       
         function closeMenu() {
             sidebar.classList.add('-translate-x-full'); 
             overlay.classList.remove('opacity-100');
             overlay.classList.add('opacity-0', 'pointer-events-none'); 
         }
 
-        Click Event
+      
         openBtn.addEventListener('click', openMenu);
         closeBtn.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu); 
@@ -136,19 +136,19 @@
 
 
 <script>
-    4 सेकंड (4000ms) बाद अलर्ट्स को धीरे से गायब करने का लॉजिक
+   
     setTimeout(() => {
         const successAlert = document.getElementById('alert-success');
         const errorAlert = document.getElementById('alert-error');
 
-        अगर सक्सेस अलर्ट है तो उसे धीरे से छुपाएं
+     
         if (successAlert) {
             successAlert.classList.add('opacity-0', 'transition-opacity', 'duration-500');
             एनीमेशन पूरा होने के बाद DOM से पूरी तरह हटा दें
             setTimeout(() => successAlert.remove(), 500);
         }
 
-        अगर एरर अलर्ट है तो उसे धीरे से छुपाएं
+       
         if (errorAlert) {
             errorAlert.classList.add('opacity-0', 'transition-opacity', 'duration-500');
             setTimeout(() => errorAlert.remove(), 500);
