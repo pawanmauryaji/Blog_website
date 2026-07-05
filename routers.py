@@ -534,6 +534,19 @@ def logout():
 @router.get("/blog/create", response_class=HTMLResponse)
 def create_blog_page(request:Request):
 
+    token_data = verify_token(request)
+    
+    
+    if not token_data:
+        response = RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+        response.set_cookie(
+            key="flash_error",
+            value="Please Login First",
+            httponly=False,
+            path="/"
+        )
+        return response 
+
     return templates.TemplateResponse(
         request=request,
         name="blog/create_blog.html"
