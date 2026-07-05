@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Main Background Wrapper -->
+
 <main class="min-h-[85vh] bg-slate-50 px-4 md:px-8 py-12">
     
-    <!-- Hero Header Div -->
+    
     <div class="max-w-7xl mx-auto mb-12 text-center border-b border-slate-200 pb-10">
         <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl">
             Explore <span class="text-orange-500">DevHub</span> Stories
@@ -13,17 +13,17 @@
             A specialized open corner for developers. Read technical guides, share insights, and learn every day.
         </p>
 
-        <!-- 🔍 Centered Premium Search Box Container -->
+        
         <div class="mt-8 max-w-xl mx-auto">
             <form action="/" method="GET" class="relative flex items-center group">
-                <!-- Search Icon -->
+                
                 <div class="absolute left-4 text-slate-400 group-focus-within:text-orange-500 transition-colors duration-200">
                     <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
   <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
 </svg>
 
                 </div>
-                <!-- Input Box -->
+                
                 <input 
                     type="text" 
                     name="search" 
@@ -31,7 +31,7 @@
                     placeholder="Search topics, keywords, tags..." 
                     class="w-full bg-white border border-slate-200 rounded-2xl pl-12 pr-28 py-3.5 text-sm text-slate-900 focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/5 transition-all shadow-xs"
                 >
-                <!-- Inline Submit Button -->
+                
                 <button 
                     type="submit" 
                     class="absolute right-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs px-4 py-2 rounded-xl transition-colors cursor-pointer"
@@ -42,50 +42,50 @@
         </div>
     </div>
 
-    <!-- Container Div for Blogs -->
+    
     <div class="max-w-7xl mx-auto">
         
-        <!-- 🎯 अगर डेटाbereich में ब्लॉग्स मौजूद हैं -->
+        
         {% if blogs %}
-        <!-- Responsive Grid Div -->
+        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {% for blog in blogs %}
-            <!-- पूरा का पूरा div कार्ड अब एक anchor link है (100% Clickable) -->
+            
             <a href="/blog/{{ blog.id }}" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-xs flex flex-col justify-between hover:border-orange-500/40 hover:shadow-lg transition-all duration-300 focus:outline-none">
                 
-                <!-- Top Section Wrapper Div -->
+                
                 <div>
-                    <!-- Meta Info Div (Tag & Date) -->
+                    
                     <div class="flex items-center justify-between mb-5">
-                        <!-- Category Tag Div -->
+                        
                         <span class="inline-block bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg border border-orange-100 uppercase tracking-wider group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                             {{ blog.tag }}
                         </span>
-                        <!-- Date Div -->
+                        
                         <span class="text-xs text-slate-400 font-medium">
                             {{ blog.created_at.strftime('%b %d, %Y') if blog.created_at else 'Recent' }}
                         </span>
                     </div>
 
-                    <!-- Blog Title Div -->
+                    
                     <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-3 line-clamp-2 group-hover:text-orange-500 transition-colors duration-300">
                         {{ blog.title }}
                     </h3>
 
-                    <!-- Content Snippet Div -->
+                    
                     <p class="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
                         {{ blog.content }}
                     </p>
                 </div>
 
-                <!-- Bottom Section Div: Author Profile Row -->
+                
                 <div class="pt-4 border-t border-slate-100 flex items-center gap-3">
-                    <!-- Initials Avatar Circle Div -->
+                    
                     <div class="w-9 h-9 bg-slate-900 rounded-full flex items-center justify-center text-white text-xs font-bold uppercase select-none shrink-0 group-hover:bg-orange-500 transition-colors duration-300">
                         {{ blog.author.name[0] if blog.author and blog.author.name else 'D' }}
                     </div>
-                    <!-- Author Text Details Div -->
+                    
                     <div>
                         <p class="text-sm font-bold text-slate-800 leading-none">
                             {{ blog.author.name if blog.author else 'Anonymous Developer' }}
@@ -99,11 +99,11 @@
 
         </div>
 
-        <!-- 📑 Clean Tailwind Pagination Controls -->
-<!-- 📑 Buttons hamesha dikhenge, par sahi time par disable ho jayenge -->
+        
+
 <div class="mt-16 flex items-center justify-center gap-2 border-t border-slate-200 pt-8">
     
-    <!-- Previous Button (Pehle page par disable ho jayega) -->
+    
     <a href="?page={{ current_page - 1 }}{% if search_query %}&search={{ search_query }}{% endif %}" 
        class="inline-flex items-center justify-center w-10 h-10 bg-white border border-slate-200 rounded-xl text-slate-400 border-slate-100 opacity-50 {{ 'pointer-events-none' if current_page <= 1 or not total_pages or total_pages <= 1 }} {{ 'hover:border-orange-500 hover:text-orange-500 text-slate-600 opacity-100' if current_page > 1 }}">
         <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
@@ -111,7 +111,7 @@
         </svg>
     </a>
 
-    <!-- Page Numbers Grid (Sirf tabhi dikhega jab sach mein zyada pages hon) -->
+    
     {% if total_pages and total_pages > 1 %}
         {% for p in range(1, total_pages + 1) %}
             {% if p == current_page %}
@@ -126,11 +126,11 @@
             {% endif %}
         {% endfor %}
     {% else %}
-        <!-- Agar ek hi page hai toh bas '1' temporary dynamic text display hoga -->
+        
         <span class="inline-flex items-center justify-center w-10 h-10 bg-orange-500 text-white font-bold rounded-xl text-sm select-none">1</span>
     {% endif %}
 
-    <!-- Next Button (Aakhri page par ya blogs kam hone par automatic disable ho jayega) -->
+    
     <a href="?page={{ current_page + 1 }}{% if search_query %}&search={{ search_query }}{% endif %}" 
        class="inline-flex items-center justify-center w-10 h-10 bg-white border border-slate-200 rounded-xl text-slate-400 border-slate-100 opacity-50 {{ 'pointer-events-none' if current_page >= total_pages or not total_pages or total_pages <= 1 }} {{ 'hover:border-orange-500 hover:text-orange-500 text-slate-600 opacity-100' if current_page < total_pages }}">
         <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
@@ -142,7 +142,7 @@
 
 
         
-        <!-- 🎯 अगर डेटाबेस पूरी तरह खाली है (No Blogs State) -->
+        
         {% else %}
         <div class="text-center py-20 bg-white border border-slate-200 rounded-2xl p-8 max-w-xl mx-auto shadow-xs">
             <div class="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-5 font-bold">
